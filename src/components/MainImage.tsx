@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
 const Ripple = dynamic(() => import("./magicui/ripple").then(mod => mod.Ripple), {
   ssr: false

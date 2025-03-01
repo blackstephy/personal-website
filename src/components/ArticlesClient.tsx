@@ -58,6 +58,7 @@ const BackButton = () => {
     <button 
       onClick={() => router.push('/')}
       className="inline-flex items-center gap-2 text-black hover:opacity-70 transition-opacity"
+      type="button"
     >
       <ArrowLeft className="w-5 h-5" />
       <span className="font-medium">Back</span>
@@ -178,12 +179,14 @@ export function ArticlesClient() {
                 <button
                   onClick={() => handleScroll('left')}
                   className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-lg p-3 rounded-full hover:bg-gray-50 transition-colors"
+                  type="button"
                 >
                   <ArrowLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => handleScroll('right')}
                   className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-lg p-3 rounded-full hover:bg-gray-50 transition-colors"
+                  type="button"
                 >
                   <ArrowLeft className="w-4 h-4 rotate-180" />
                 </button>

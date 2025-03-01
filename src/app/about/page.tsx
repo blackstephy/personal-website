@@ -1,7 +1,7 @@
-'use client';
-
 import { Layout } from "@/components/Layout";
 import { AboutPageContent } from "@/components/AboutPageContent";
+
+export const dynamic = 'force-static';
 
 export default function AboutPage() {
   return (

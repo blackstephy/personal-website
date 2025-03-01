@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 import { useState } from "react";
 
@@ -9,26 +9,26 @@ const MenuButton = ({ onClick }: { onClick: () => void }) => (
   <button 
     onClick={onClick}
     className="block md:hidden w-6 h-5 relative flex flex-col justify-between"
+    type="button"
   >
-    <span className="w-full h-0.5 bg-black rounded-full transition-all duration-300"></span>
-    <span className="w-full h-0.5 bg-black rounded-full transition-all duration-300"></span>
-    <span className="w-full h-0.5 bg-black rounded-full transition-all duration-300"></span>
+    <span className="w-full h-0.5 bg-black rounded-full transition-all duration-300"/>
+    <span className="w-full h-0.5 bg-black rounded-full transition-all duration-300"/>
+    <span className="w-full h-0.5 bg-black rounded-full transition-all duration-300"/>
   </button>
 );
 
 export function Navigation() {
-  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   return (
     <nav className="relative z-50">
       <div className="flex justify-between items-center px-6 md:px-8 py-6 bg-white">
-        <button 
-          onClick={() => router.push('/')}
+        <Link 
+          href="/"
           className="text-2xl font-bold tracking-wider hover:opacity-70 transition-opacity relative z-50"
         >
           STEPHY TUNG
-        </button>
+        </Link>
         
         {/* 桌面端导航 */}
         <div className="hidden md:flex items-center gap-4">
@@ -50,12 +50,13 @@ export function Navigation() {
           >
             MATRIX
           </InteractiveHoverButton>
-          <InteractiveHoverButton 
-            className="border-none"
-            onClick={() => router.push('/about')}
-          >
-            MORE
-          </InteractiveHoverButton>
+          <Link href="/about">
+            <InteractiveHoverButton 
+              className="border-none"
+            >
+              MORE
+            </InteractiveHoverButton>
+          </Link>
         </div>
 
         {/* 移动端菜单按钮 */}
@@ -72,6 +73,7 @@ export function Navigation() {
                 window.open('https://www.xiaohongshu.com/user/profile/67507430000000001c018499', '_blank');
                 setIsMenuOpen(false);
               }}
+              type="button"
             >
               RED
             </button>
@@ -81,6 +83,7 @@ export function Navigation() {
                 window.open('https://www.douyin.com/user/self?from_tab_name=main', '_blank');
                 setIsMenuOpen(false);
               }}
+              type="button"
             >
               TIKTOK
             </button>
@@ -90,18 +93,17 @@ export function Navigation() {
                 window.open('https://sspai.com/u/b38mvwi7/updates', '_blank');
                 setIsMenuOpen(false);
               }}
+              type="button"
             >
               MATRIX
             </button>
-            <button 
+            <Link 
+              href="/about"
               className="text-black hover:opacity-70 transition-opacity text-left"
-              onClick={() => {
-                router.push('/about');
-                setIsMenuOpen(false);
-              }}
+              onClick={() => setIsMenuOpen(false)}
             >
               MORE
-            </button>
+            </Link>
           </div>
         </div>
       )}

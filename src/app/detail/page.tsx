@@ -1,6 +1,5 @@
 'use client';
 
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
@@ -14,6 +13,7 @@ const BackButton = () => {
     <button 
       onClick={() => router.push('/')}
       className="flex items-center gap-2 text-black hover:opacity-70 transition-opacity"
+      type="button"
     >
       <ArrowLeft size={24} />
       <span>Back</span>
@@ -30,13 +30,13 @@ const DetailContent = () => (
     <div className="mt-8">
       <h2 className="text-2xl md:text-3xl font-bold mb-6">About Me</h2>
       <p className="text-base md:text-lg mb-6 leading-relaxed text-gray-600">
-        Hi, I'm Stephy Tang, a minimalist designer based in Arlington Heights.
+        Hi, I&apos;m Stephy Tang, a minimalist designer based in Arlington Heights.
         I focus on creating clean, user-friendly designs that communicate effectively.
         My approach combines simplicity with functionality, ensuring that every
         element serves a purpose.
       </p>
       <p className="text-base md:text-lg mb-6 leading-relaxed text-gray-600">
-        With years of experience in digital design, I've worked with various
+        With years of experience in digital design, I&apos;ve worked with various
         clients to bring their visions to life while maintaining a minimalist
         aesthetic that speaks volumes.
       </p>
